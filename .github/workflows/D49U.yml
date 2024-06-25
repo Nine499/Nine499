@@ -1,0 +1,35 @@
+name: D49U_name
+
+on:
+  schedule:
+    - cron: "12 1 * * *"
+  push:
+  workflow_dispatch:
+
+jobs:
+  D49U_jobs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: 创建临时文件夹
+        run: |
+          mkdir 494949494949
+
+      - name: 下载外部资源
+        run: |
+          curl -o 494949494949/water.css https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+          curl -o 494949494949/Twitter.svg https://img.shields.io/badge/Twitter-Nine__1027-purple
+          curl -o 494949494949/Telegram.svg https://img.shields.io/badge/Telegram-call__nine__bot-blue
+          curl -o 494949494949/bgm.tv.gif https://bgm.tv/chart/img/237857
+
+      - name: 上传临时文件到永久
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          git-config-name: fake49_bot
+          git-config-email: y2127xfw@duck.com
+          folder: 494949494949
+          branch: master
+          target-folder: box
